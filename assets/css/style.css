@@ -1,0 +1,127 @@
+body{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px; 
+    color: #333; 
+    line-height: 1.6;
+}
+
+*,
+*:before
+*:after{
+    box-sizing: border-box ;
+}
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+/* Container */
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Intro */
+
+.intro{
+    width: 100;
+    height: 100vh;
+    background: url("../images/blurred-green-palm-leaves-off-white.jpg") center, no-repeat;
+    background-size: cover ;
+}
+
+/* Header */
+.header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+}
+
+.header_logo{
+     font-size: 30px;
+     font-weight: 700;
+     margin-top: 30px;
+}
+
+/* Input_nav */
+
+.input_nav{
+    display: flex;
+    margin: 0 30px;
+    margin-top: 60px;
+    vertical-align: top;
+    font-size: 14px;
+    text-transform: uppercase;
+    place-content: center;
+    
+}
+
+
+
+/* Form */
+
+
+
+.submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.textar{
+    display: flex;
+    justify-content: center;
+
+}
+
+textarea{
+        padding: 20px 20px;
+        line-height: 10px;
+        width: 50%;
+        border: 1px solid #999;
+        border-radius: 6px;
+        background-color: transparent;
+       font-size: 18px;
+        margin-top: 20px;
+    
+}
+
+/* Button */
+
+.form_radio_btn {
+	display: inline-block;
+	margin-right: 30px;
+
+}
+.form_radio_btn input[type=radio] {
+	display: none;
+}
+.form_radio_btn label {
+	display: inline-block;
+	cursor: pointer;
+	padding: 0px 15px;
+	line-height: 34px;
+	border: 1px solid #999;
+	border-radius: 6px;
+	user-select: none;
+}
+ 
+/* Checked */
+.form_radio_btn input[type=radio]:checked + label {
+	background: #ffe0a6;
+}
+ 
+/* Hover */
+.form_radio_btn label:hover {
+	color: #666;
+}
+ 
+/* Disabled */
+.form_radio_btn input[type=radio]:disabled + label {
+	background: #efefef;
+	color: #666;
+}
