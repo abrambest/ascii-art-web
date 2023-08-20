@@ -17,8 +17,21 @@ h1, h2, h3, h4, h5, h6{
 /* Container */
 .container{
     width: 100%;
+
+    max-width: 1200px;
+    margin: 120px auto 0;
+    position: relative;
+    z-index: 2;
+
+
+
+}
+
+.container_header{
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    height: 20vh;
 }
 
 /* Intro */
@@ -38,13 +51,19 @@ h1, h2, h3, h4, h5, h6{
     left: 0;
     right: 0;
     z-index: 1;
+    
 
 }
 
 .header_logo{
+    position: absolute;
+    width: max-content;
      font-size: 30px;
      font-weight: 700;
      margin-top: 30px;
+     text-decoration: none;
+     color: #333
+
 }
 
 /* Input_nav */
@@ -79,14 +98,16 @@ h1, h2, h3, h4, h5, h6{
 }
 
 textarea{
+    
         padding: 20px 20px;
-        line-height: 10px;
+height: 50px;
         width: 50%;
         border: 1px solid #999;
         border-radius: 6px;
         background-color: transparent;
        font-size: 18px;
         margin-top: 20px;
+        margin-bottom: 20px;
     
 }
 
@@ -124,4 +145,20 @@ textarea{
 .form_radio_btn input[type=radio]:disabled + label {
 	background: #efefef;
 	color: #666;
+}
+
+/* Result */
+
+.result{
+    text-align: center;
+    position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+    width: 80%;
+    z-index: 2;
+
+}
+pre{
+    overflow: scroll;
 }
