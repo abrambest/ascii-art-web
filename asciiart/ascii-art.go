@@ -30,38 +30,33 @@ func readAscii(font string) []string {
 }
 
 func printAsciiArt(txt, arrSplit []string) string {
-	res := ""
 
-	if txt[0] == "" {
-		fmt.Println()
-		return ""
-	}
-
+	str := ""
 	for _, word := range txt {
-		if word == "" {
-			fmt.Println()
+
+		if word == "\n" {
+			str += "\n"
 			continue
 		}
 
 		for k := 0; k < 8; k++ {
-			str := ""
 
 			for _, s := range word {
+				if s >= 32 {
+					strCut := strings.Split(arrSplit[s-32], "\n")
+					for _, ascii := range strCut[k] {
 
-				strCut := strings.Split(arrSplit[s-32], "\n")
-				for _, ascii := range strCut[k] {
-
-					str += string(ascii)
-
+						str += string(ascii)
+					}
 				}
 
 			}
+			str += "\n"
 
-			res += str + "\n"
 		}
 
 	}
-	return res
+	return str
 
 }
 
@@ -98,7 +93,7 @@ func AsciiFunc(txt, font string) (string, error) {
 		return "", err
 	}
 
-	arrTxt := strings.Split(txt, "\\n")
+	arrTxt := strings.Split(txt, "\n")
 
 	arrSplit := readAscii(font)
 	return printAsciiArt(arrTxt, arrSplit), nil

@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6{
 /* Intro */
 
 .intro{
-    width: 100;
+    width: 100%;
     height: 100vh;
     background: url("../images/blurred-green-palm-leaves-off-white.jpg") center, no-repeat;
     background-size: cover ;
@@ -152,13 +152,17 @@ height: 50px;
 .result{
     text-align: center;
     position: relative;
+
   margin: 0 auto;
-  display: flex;
+
   justify-content: center;
     width: 80%;
     z-index: 2;
 
 }
 pre{
-    overflow: scroll;
+    width: 100%;
+    height: 55vh;
+    overflow: overlay;
+    text-decoration: none;
 }
