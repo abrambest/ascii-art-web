@@ -1,0 +1,52 @@
+{{template "base" .}}
+
+{{define "title"}}Ascii-Art-Web{{end}}
+
+{{define "main"}}
+
+<div class="container">
+    <div class="header_inner">
+
+        <form class="form_container" action="/ascii-art" method="POST">
+            <div class="input_nav" name="font">
+
+                <div class="form_radio_btn">
+                    <input id="radio-1" type="radio" name="font" value="standard" checked>
+                    <label for="radio-1">standart</label>
+                </div>
+
+                <div class="form_radio_btn">
+                    <input id="radio-2" type="radio" name="font" value="shadow">
+                    <label for="radio-2">shadow</label>
+                </div>
+
+                <div class="form_radio_btn">
+                    <input id="radio-3" type="radio" name="font" value="thinkertoy">
+                    <label for="radio-3">thinkertoy</label>
+                </div>
+
+
+            </div>
+
+            <div class="textar">
+
+                <textarea name="text" placeholder="input..." id="" cols="30" rows="10"></textarea>
+
+
+            </div>
+            <div class="submit">
+                <div class="form_radio_btn">
+                    <input id="radio-4" type="submit" name="submit" value="Submit4" style="display: none;">
+                    <label for="radio-4">submit</label>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="result">
+    <pre>{{.}}</pre>
+</div>
+
+{{end}}

@@ -89,7 +89,7 @@ func AsciiFunc(txt, font string) (string, error) {
 
 	err := checkTxt(txt)
 	if err != nil {
-		fmt.Println(err)
+
 		return "", err
 	}
 

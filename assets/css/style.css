@@ -166,3 +166,18 @@ pre{
     overflow: overlay;
     text-decoration: none;
 }
+
+footer{
+    position: relative;
+display: flex;
+justify-content: center;
+z-index: 3;
+}
+
+.error{
+    position: relative;
+    margin: 10%;
+
+    z-index: 3;
+    text-align: center;
+}

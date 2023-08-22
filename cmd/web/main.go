@@ -8,51 +8,93 @@ import (
 	"net/http"
 )
 
-func errorPage(w http.ResponseWriter, err error) {
-	html, err := template.ParseFiles("assets/index.html")
+type Error struct {
+	Error string
+	Code  int
+}
+
+func errorPage(w http.ResponseWriter, error string, code int) {
+	htmlFiles := []string{
+		"./assets/error.html",
+		"./assets/base.layout.html",
+		"./assets/footer.html",
+	}
+
+	html, err := template.ParseFiles(htmlFiles...)
 	if err != nil {
-		fmt.Println(err)
+		http.Error(w, "Internal Server Error", 500)
+		fmt.Println("1")
 		return
 	}
-	err = html.Execute(w, err)
+	w.WriteHeader(code)
+	err = html.ExecuteTemplate(w, "error.html", Error{
+		Error: error,
+		Code:  code,
+	})
+
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("2")
+		http.Error(w, "Internal Server Error", 500)
 		return
 	}
-	return
+
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
-	html, err := template.ParseFiles("assets/index.html")
+
+	if r.URL.Path != "/" {
+		errorPage(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+		return
+	}
+	htmlFiles := []string{
+		"./assets/home.html",
+		"./assets/footer.html",
+		"./assets/base.layout.html",
+	}
+	if r.Method != http.MethodGet {
+		errorPage(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
+	}
+	html, err := template.ParseFiles(htmlFiles...)
 	if err != nil {
-		fmt.Println(err)
+		errorPage(w, "Internal Server Error", 500)
 		return
 	}
 	err = html.Execute(w, nil)
 	if err != nil {
-		fmt.Println(err)
+		errorPage(w, "Internal Server Error", 500)
 		return
 	}
 
 }
 func asciiHandler(w http.ResponseWriter, r *http.Request) {
-	html, err := template.ParseFiles("assets/index.html")
+	htmlFiles := []string{
+		"./assets/home.html",
+		"./assets/footer.html",
+		"./assets/base.layout.html",
+	}
+	if r.Method != http.MethodPost {
+		errorPage(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
+		return
+	}
+	html, err := template.ParseFiles(htmlFiles...)
 	if err != nil {
-		fmt.Println(err)
+		errorPage(w, "Internal Server Error", 500)
 		return
 	}
 	font := r.FormValue("font")
 	text := r.FormValue("text")
 	res, err := asciiart.AsciiFunc(text, font)
 	if err != nil {
-		fmt.Println(err)
-		errorPage(w, err)
-		return
+		err = html.Execute(w, err)
+		if err != nil {
+			errorPage(w, "Internal Server Error", 500)
+			return
+		}
 	}
 
 	err = html.Execute(w, res)
 	if err != nil {
-		fmt.Println(err)
+		errorPage(w, "Internal Server Error", 500)
 		return
 	}
 }
