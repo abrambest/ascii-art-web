@@ -12,21 +12,24 @@
     <title>Ascii-Art-Web </title>
 </head>
 <header class="header">
-    <div class="intro">
-        <div class="container_header">
 
-            <a class="header_logo" href="/"> {{template "title" .}} </a>
+    <div class="container_header">
+
+        <a class="header_logo" href="/"> {{template "title" .}} </a>
+
 
 
     </div>
-    </div>
-     
+
 </header>
 
 <body>
+    <div class="page">
+         {{template "main" .}}
+    {{template "footer" .}}
+    </div>
+
    
-{{template "main" .}}
-{{template "footer" .}}
 
 </body>
 

@@ -104,7 +104,7 @@ func main() {
 	mux.HandleFunc("/", home)
 	mux.Handle("/assets/", http.StripPrefix("/assets", http.FileServer(http.Dir("./assets"))))
 	mux.HandleFunc("/ascii-art", asciiHandler)
-	log.Println("Server start: http://localhost:3030")
-	err := http.ListenAndServe("localhost:3030", mux)
+	log.Println("Server start: http://localhost:8080")
+	err := http.ListenAndServe("localhost:8080", mux)
 	log.Fatal(err)
 }

@@ -1,25 +1,37 @@
-body{
+body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px; 
-    color: #333; 
+    font-size: 15px;
+    color: #333;
     line-height: 1.6;
+    width: 100%;
+    /* height: 115vh; */
+    background: url("../images/blurred-green-palm-leaves-off-white.jpg") center, no-repeat;
+
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 *,
-*:before
-*:after{
-    box-sizing: border-box ;
+*:before *:after {
+    box-sizing: border-box;
 }
-h1, h2, h3, h4, h5, h6{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
+
 /* Container */
-.container{
+.container {
     width: 100%;
 
     max-width: 1200px;
-    margin: 120px auto 0;
+    margin: 0 auto 0;
     position: relative;
     z-index: 2;
 
@@ -27,56 +39,51 @@ h1, h2, h3, h4, h5, h6{
 
 }
 
-.container_header{
+.container_header {
     width: 100%;
-    max-width: 1200px;
+    max-width: 83%;
     margin: 0 auto;
-    height: 20vh;
+
 }
 
 /* Intro */
 
-.intro{
+/* .intro{
     width: 100%;
-    height: 100vh;
+    height: 115vh;
     background: url("../images/blurred-green-palm-leaves-off-white.jpg") center, no-repeat;
     background-size: cover ;
-}
+} */
 
 /* Header */
-.header{
+.header {
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    
+    height: 100px;
+
 
 }
 
-.header_logo{
+.header_logo {
     position: absolute;
     width: max-content;
-     font-size: 30px;
-     font-weight: 700;
-     margin-top: 30px;
-     text-decoration: none;
-     color: #333
-
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #333
 }
 
 /* Input_nav */
 
-.input_nav{
+.input_nav {
     display: flex;
     margin: 0 30px;
-    margin-top: 60px;
+
     vertical-align: top;
     font-size: 14px;
     text-transform: uppercase;
     place-content: center;
-    
+
 }
 
 
@@ -85,99 +92,124 @@ h1, h2, h3, h4, h5, h6{
 
 
 
-.submit{
+.submit {
     display: flex;
     justify-content: center;
+
+}
+
+.textar {
+    display: flex;
+    justify-content: center;
+
+}
+
+textarea {
+
+    padding: 20px 20px;
+    height: 50px;
+    width: 50%;
+    border: 1px solid #999;
+    border-radius: 6px;
+    background-color: transparent;
+    font-size: 18px;
     margin-top: 20px;
-}
+    margin-bottom: 20px;
 
-.textar{
-    display: flex;
-    justify-content: center;
-
-}
-
-textarea{
-    
-        padding: 20px 20px;
-height: 50px;
-        width: 50%;
-        border: 1px solid #999;
-        border-radius: 6px;
-        background-color: transparent;
-       font-size: 18px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    
 }
 
 /* Button */
 
 .form_radio_btn {
-	display: inline-block;
-	margin-right: 30px;
+    display: inline-block;
+    margin-right: 30px;
 
 }
+
 .form_radio_btn input[type=radio] {
-	display: none;
+    display: none;
 }
+
 .form_radio_btn label {
-	display: inline-block;
-	cursor: pointer;
-	padding: 0px 15px;
-	line-height: 34px;
-	border: 1px solid #999;
-	border-radius: 6px;
-	user-select: none;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0px 15px;
+    line-height: 34px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    user-select: none;
 }
- 
+
 /* Checked */
-.form_radio_btn input[type=radio]:checked + label {
-	background: #ffe0a6;
+.form_radio_btn input[type=radio]:checked+label {
+    background: #ffe0a6;
 }
- 
+
 /* Hover */
 .form_radio_btn label:hover {
-	color: #666;
+    color: #666;
 }
- 
+
 /* Disabled */
-.form_radio_btn input[type=radio]:disabled + label {
-	background: #efefef;
-	color: #666;
+.form_radio_btn input[type=radio]:disabled+label {
+    background: #efefef;
+    color: #666;
 }
 
 /* Result */
 
-.result{
+.result {
     text-align: center;
     position: relative;
 
-  margin: 0 auto;
-
-  justify-content: center;
+    margin: 0 auto;
+    height: 44%;
+    justify-content: center;
     width: 80%;
     z-index: 2;
 
 }
-pre{
+
+pre {
     width: 100%;
-    height: 55vh;
+    height: 50vh;
     overflow: overlay;
     text-decoration: none;
 }
 
-footer{
+footer {
+    margin-top: auto;
+    margin-bottom: 1%;
     position: relative;
-display: flex;
-justify-content: center;
-z-index: 3;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
 }
 
-.error{
+.error {
     position: relative;
     margin: 10%;
 
     z-index: 3;
     text-align: center;
+}
+
+.page {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 88vh;
+}
+
+
+@media only screen  and (min-width: 400px) and (max-width: 500px){
+    .input_nav {
+        display: grid;
+    }
+
+    .form_radio_btn {
+        margin-right: 0px;
+        text-align: center;
+        margin-bottom: 1px;
+      }
 }
