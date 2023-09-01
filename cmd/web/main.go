@@ -53,6 +53,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 	}
 	if r.Method != http.MethodGet {
 		errorPage(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
+		return
 	}
 	html, err := template.ParseFiles(htmlFiles...)
 	if err != nil {
